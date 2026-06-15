@@ -1,0 +1,20 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Login(BaseModel):
+    username: str
+    password: str
+
+@app.post("/login")
+def login(user: Login):
+
+    if user.username == "admin" and user.password == "1234":
+        return {
+            "message": "Login Successful"
+        }
+
+    return {
+        "message": "Invalid Credentials"
+    }

@@ -1,0 +1,9 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.delete("/student/{id}")
+def delete_student(id: int):
+    return {
+        "message": f"Student {id} deleted successfully"
+    }

@@ -1,0 +1,12 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+students = [
+    {"id": 1, "name": "Sri"},
+    {"id": 2, "name": "Rani"}
+]
+
+@app.get("/students")
+def get_students():
+    return students
